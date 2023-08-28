@@ -1,0 +1,28 @@
+{
+  "contacts": [
+    {
+      "name": "Ramón",
+      "last_name": "Perdomo",
+      "email": "laboratorio@tdpdominicana.com",
+      "id": 1
+    },
+    {
+      "name": "Arleen",
+      "last_name": "Villar",
+      "email": "arlina@gmail.com",
+      "id": 3
+    }
+  ],
+  "phones": [
+    {
+      "id_contact": "1",
+      "phone": "809-429-1908",
+      "id": 1
+    },
+    {
+      "id_contact": "3",
+      "phone": "809-321-7855",
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-header">
+    Editar Contacto
+  </div>
+  <div class="card-body">
+    <form ngNativeValidate #isFormValid="ngForm" [formGroup]="contactForm" (ngSubmit)="sendData()">
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input required type="text" class="form-control" formControlName="name">
+
+        <!-- Errores de validación del nombre -->
+        <div *ngIf="name?.invalid">
+          <span class="text-danger" *ngIf="name?.errors?.['minlength']">El nombre es muy corto.</span>
+        </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="last_name" class="form-label">Apellido</label>
+        <input required type="text" class="form-control" formControlName="last_name">
+
+        <!-- Errores de validación del apellido -->
+        <div *ngIf="last_name?.invalid">
+          <span class="text-danger" *ngIf="last_name?.errors?.['minlength']">El apellido es muy corto.</span>
+        </div>
+
+
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input required type="email" class="form-control" formControlName="email">
+      </div>
+
+      <div class="btn-group">
+        <button type="button" routerLink="/contacts/list" class="btn btn-secondary">Regresar</button>
+        <button type="submit" class="btn btn-success" [disabled]="!isFormValid.valid">Editar</button>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="card">
+  <div class="card-header">
+    Contacto
+  </div>
+  <div class="card-body">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input required type="text" class="form-control" value="{{contact.name}}" disabled>
+    </div>
+
+    <div class="mb-3">
+      <label for="last_name" class="form-label">Apellido</label>
+      <input required type="text" class="form-control" value="{{contact.last_name}}" disabled>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input required type="email" class="form-control" value="{{contact.email}}" disabled>
+    </div>
+
+  </div>
+</div>
+
+<hr>
+
+<div class="card">
+  <div class="card-header">
+    Teléfonos
+  </div>
+  <div class="card-body">
+
+    <div class="table-responsive" *ngIf="Phones.length != 0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contact of Phones; let i = index">
+            <td>{{contact.id}}</td>
+            <td>{{contact.phone}}</td>
+            <td>
+              <div class="btn-group">
+                <a class="btn btn-danger" (click)="delete(contact.id, i)" role="button">Borrar</a>
+                <a class="btn btn-warning" routerLink="/phones/update/{{contact.id}}">Editar</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="Phones.length == 0">
+      <h4>No se encontraron registros en la base de datos</h4>
+    </div>
+
+  </div>
+</div>
+
+<hr>
+
+<div class="btn-group">
+  <a class="btn btn-secondary" routerLink="/contacts/list">Regresar</a>
+  <a class="btn btn-warning" routerLink="/contacts/update/{{contact.id}}">Editar Contacto</a>
+  <a class="btn btn-success" routerLink="/phones/add/{{contact.id}}">Agregar Teléfono</a>
+</div>
